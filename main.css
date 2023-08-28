@@ -1,0 +1,65 @@
+/*
+1-Posicionamiento
+2-Boxmodel
+3-Tipografia
+4-Efetos visuales
+5-Otros
+*/
+
+:root{
+/*Colores */
+    --rojo: rgb(218, 11, 11);
+    --white: white;
+    --black: rgba(0, 0, 0, 0.824);
+    --softBlue: #1717e8ef;
+
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62;
+    font-family: 'DM sans', sans-serif;
+
+
+}
+
+/* header styles*/
+header{
+    background-image: url(./img/header_optimized.png);
+    background-position: center, ;
+    background-repeat: no-repeat;
+    background-size: cover, auto;
+    margin-right: auto;
+    margin-left: auto;
+    height: 700px;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+
+            
+}
+
+
+
+/* Nav Styles
+---------------------------------*/
+
+.menu{
+    display: none;
+}
+
+nav {
+    display: block;
+  }
+
+.navbar{
+    list-style: none;
+    padding: 0%;
+    margin-top: 24px;
+}
