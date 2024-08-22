@@ -30,6 +30,9 @@ html{
 
 /* header styles*/
 header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background-image: url(./img/header_optimized.png);
     background-position: center, ;
     background-repeat: no-repeat;
@@ -38,9 +41,10 @@ header{
     margin-left: auto;
     height: 700px;
     width: 100%;
+    min-width: 320px;
     justify-content: center;
     align-content: center;
-    display: flex;
+    text-align: center;
 
             
 }
