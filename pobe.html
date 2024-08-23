@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header con Imagen de Fondo</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-image: url('./img/header-only-min.png');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        .logo-title {
+            display: inline-block;
+            text-align: center;
+        }
+        .logo-title img {
+            max-height: 80px;
+            margin-bottom: 20px;
+        }
+        .logo-title h1 {
+            font-size: 36px;
+            margin: 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-	
+
+<header class="header">
+    <div class="logo-title">
+        <img src="./img/header.webp" alt="Logo">
+        <h1>Título de la Página</h1>
+    </div>
+</header>
+
 </body>
 </html>
