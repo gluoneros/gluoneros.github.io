@@ -6,6 +6,10 @@
 5-Otros
 */
 
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Raleway:800,700,400);
+@import url(http://fonts.googleapis.com/css?family=Signika:400,600);
+
 :root{
 /*Colores */
     --rojo: rgb(218, 11, 11);
@@ -37,7 +41,7 @@ body, html {
     padding: 60px 0;
     text-align: center;
     color: white;
-    height: 300px;
+    height: 320px;
 }
 .logo-title {
     display: inline-block;
