@@ -10,8 +10,13 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:800,700,400");
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600");
 
-/* Variables de colores */
+/* Paleta de colores */
 :root {
+    --blue: #1b325f;
+    --lightblue: #9cc4e4;
+    --light:  #e9f2f9;
+    --softBlue2: #3a89c9;
+    --orange: #f26c4f;
     --rojo: rgb(218, 11, 11);           /* Rojo para acentos y efectos de hover */
     --white: white;                     /* Blanco para texto principal */
     --black: rgba(0, 0, 0, 0.824);      /* Negro semitransparente */
@@ -44,7 +49,7 @@ body, html {
     background-position: center;               /* Imagen centrada */
     padding: 60px 20px;                        /* Espacio alrededor del contenido */
     text-align: center;                        /* Centrar texto */
-    color: var(--white);                       /* Color blanco para el texto */
+    color: var(--lightblue);                       /* Color blanco para el texto */
     height: 320px;                             /* Altura fija del header */
     width: 100%;                               /* Ocupa todo el ancho de la pantalla */
 }
@@ -82,7 +87,7 @@ body, html {
     display: inline-block;                     /* Elemento en línea pero con padding */
     padding: 10px 20px;                        /* Espacio interno del botón */
     margin-top: 10px;                          /* Espacio arriba */
-    background-color: var(--ctaBackground);    /* Fondo azul */
+    background-color: var(--blue);    /* Fondo azul */
     color: var(--white);                       /* Texto blanco */
     text-decoration: none;                     /* Sin subrayado */
     border-radius: 5px;                        /* Bordes redondeados */
@@ -92,7 +97,7 @@ body, html {
 
 /* Efecto hover para el botón */
 .cta-button:hover {
-    background-color: var(--rojo);             /* Fondo rojo al pasar el cursor */
+    background-color: var(--orange);             /* Fondo rojo al pasar el cursor */
 }
 
 /* Ajustes responsivos para pantallas más pequeñas */
@@ -121,7 +126,7 @@ body, html {
     display: flex;                             /* Alinear elementos en fila */
     justify-content: space-around;             /* Espacio uniforme entre enlaces */
     align-items: center;                       /* Centrado vertical */
-    background-color: #34495e;                 /* Fondo oscuro */
+    background-color: var(--blue);                 /* Fondo oscuro */
     border-radius: 8px;                        /* Bordes redondeados */
     padding: 15px 30px;                        /* Espacio interno */
     width: 100%;                               /* Ocupa todo el ancho del contenedor */
@@ -144,7 +149,7 @@ body, html {
 
 /* Efecto hover */
 .navbar a:hover {
-    color: rgb(218, 11, 11);                            /* Cambiar color al pasar el cursor */
+    color: var(--orange);                            /* Cambiar color al pasar el cursor */
 }
 
 /* Estilo responsivo para pantallas pequeñas */
