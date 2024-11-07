@@ -7,90 +7,156 @@
 5-Otros
 */
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:800,700,400);
-@import url(http://fonts.googleapis.com/css?family=Signika:400,600);
+@import url("https://fonts.googleapis.com/css?family=Raleway:800,700,400");
+@import url("https://fonts.googleapis.com/css?family=Signika:400,600");
 
-:root{
-/*Colores */
-    --rojo: rgb(218, 11, 11);
-    --white: white;
-    --black: rgba(0, 0, 0, 0.824);
-    --softBlue: #1717e8ef;
-
+/* Variables de colores */
+:root {
+    --rojo: rgb(218, 11, 11);           /* Rojo para acentos y efectos de hover */
+    --white: white;                     /* Blanco para texto principal */
+    --black: rgba(0, 0, 0, 0.824);      /* Negro semitransparente */
+    --softBlue: #1717e8ef;              /* Azul suave para fondos */
+    --textColor: #f0f0f0;               /* Color de texto secundario */
+    --ctaBackground: #1717e8ef;         /* Color de fondo para el botón CTA */
 }
 
-*{
+/* Reseteo de márgenes y paddings */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Configuración básica para la fuente del documento */
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif; /* Fuente principal con alternativa Arial */
+    overflow-x: hidden;                        /* Evitar el scroll horizontal */
 }
 
-/* header styles*/
+/* Estilo principal del header */
 .header {
-    display: flex;
-    flex-direction: column;
-    background-image: url('./img/header-only-min.png');
-    background-size: cover;
-    background-position: center;
-    padding: 60px 0;
-    text-align: center;
-    color: white;
-    height: 320px;
+    display: flex;                             /* Usamos flex para centrar contenido */
+    flex-direction: column;                    /* Apilamos los elementos verticalmente */
+    align-items: center;                       /* Centramos horizontalmente */
+    justify-content: center;                   /* Centramos verticalmente */
+    background-image: url('./img/header-only-min.png'); /* Imagen de fondo */
+    background-size: cover;                    /* Imagen cubre el área */
+    background-position: center;               /* Imagen centrada */
+    padding: 60px 20px;                        /* Espacio alrededor del contenido */
+    text-align: center;                        /* Centrar texto */
+    color: var(--white);                       /* Color blanco para el texto */
+    height: 320px;                             /* Altura fija del header */
+    width: 100%;                               /* Ocupa todo el ancho de la pantalla */
 }
+
+/* Contenedor del logo y título */
 .logo-title {
-    display: inline-block;
-    text-align: center;
+    text-align: center;                        /* Centrar contenido */
+    max-width: 100%;                           /* Se adapta al ancho disponible */
 }
+
+/* Estilo de la imagen del logo */
 .logo-title img {
-    max-height: 80px;
-    margin-bottom: 20px;
+    max-height: 80px;                          /* Altura máxima del logo */
+    margin-bottom: 20px;                       /* Espacio debajo del logo */
 }
+
+/* Estilo del título principal */
 .logo-title h1 {
-    font-size: 2.6rem;
-    margin: 0;
-    font-weight: bold;
+    font-size: 2.5rem;                         /* Tamaño del texto */
+    margin: 0;                                 /* Eliminar margen */
+    font-weight: bold;                         /* Negrita para resaltar */
+    color: var(--white);                       /* Color blanco */
 }
 
-.logo-title p {
-    font-size: 0.7rem;
-    margin: 0;
-    
+/* Subtítulo del header */
+.logo-title h4 {
+    font-size: 0.7rem;                           /* Tamaño del subtítulo */
+    font-weight: 500;                          /* Peso medio */
+    color: var(--textColor);                   /* Color gris claro */
+    margin: 5px 0 15px;                        /* Espacio arriba y abajo */
 }
 
-/* Nav Styles
----------------------------------*/
-
-
-
-
-nav {
-    margin: 27px auto 0;
-    align-items: left;
-    position: relative;
-    display: block;
-    align-self: auto;
-    width: 690px;
-    height: 50px;
-    background-color: #34495e;
-    border-radius: 8px;
-    font-size: 0;
+/* Botón de llamada a la acción */
+.cta-button {
+    display: inline-block;                     /* Elemento en línea pero con padding */
+    padding: 10px 20px;                        /* Espacio interno del botón */
+    margin-top: 10px;                          /* Espacio arriba */
+    background-color: var(--ctaBackground);    /* Fondo azul */
+    color: var(--white);                       /* Texto blanco */
+    text-decoration: none;                     /* Sin subrayado */
+    border-radius: 5px;                        /* Bordes redondeados */
+    font-weight: bold;                         /* Texto en negrita */
+    transition: background-color 0.3s;         /* Efecto suave en el cambio de color */
 }
-nav a {
-    line-height: 50px;
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
+
+/* Efecto hover para el botón */
+.cta-button:hover {
+    background-color: var(--rojo);             /* Fondo rojo al pasar el cursor */
+}
+
+/* Ajustes responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .header {
+        padding: 40px 10px;                    /* Menos padding en pantallas pequeñas */
+        height: auto;                          /* Altura se adapta al contenido */
+    }
+    .logo-title img {
+        max-height: 60px;                      /* Reducir tamaño del logo */
+    }
+    .logo-title h1 {
+        font-size: 2rem;                       /* Reducir tamaño del título */
+    }
+    .logo-title h4 {
+        font-size: 0.9rem;                     /* Reducir tamaño del subtítulo */
+    }
+    .cta-button {
+        padding: 8px 16px;                     /* Menor padding en el botón */
+        font-size: 0.9rem;                     /* Reducir tamaño de texto del botón */
+    }
+}
+
+/* Estilo general del navbar */
+.navbar {
+    display: flex;                             /* Alinear elementos en fila */
+    justify-content: space-around;             /* Espacio uniforme entre enlaces */
+    align-items: center;                       /* Centrado vertical */
+    background-color: #34495e;                 /* Fondo oscuro */
+    border-radius: 8px;                        /* Bordes redondeados */
+    padding: 15px 30px;                        /* Espacio interno */
+    width: 100%;                               /* Ocupa todo el ancho del contenedor */
+    max-width: 900px;                          /* Limitar ancho en pantallas grandes */
+    margin: 20px auto 0;                       /* Espacio superior para separar del header */
+    position: relative;                        /* Mantener el navbar en flujo normal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra */
+}
+
+/* Estilo de los enlaces */
+.navbar a {
+    color: white;                              /* Texto blanco */
+    text-decoration: none;                     /* Sin subrayado */
+    font-size: 15px;                           /* Tamaño de fuente */
+    text-transform: uppercase;                 /* Texto en mayúsculas */
+    font-weight: bold;                         /* Negrita */
+    transition: color 0.3s;                    /* Transición de color al pasar el cursor */
+    padding: 5px 15px;                         /* Espacio interno para mejor clicabilidad */
+}
+
+/* Efecto hover */
+.navbar a:hover {
+    color: rgb(218, 11, 11);                            /* Cambiar color al pasar el cursor */
+}
+
+/* Estilo responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;                /* Cambiar a columna en pantallas pequeñas */
+        padding: 10px;                         /* Reducir padding */
+        width: 100%;                           /* Ocupa todo el ancho en móvil */
+    }
+
+    .navbar a {
+        font-size: 14px;                       /* Reducir tamaño de texto */
+        padding: 10px 0;                       /* Espacio entre enlaces en modo columna */
+    }
 }
