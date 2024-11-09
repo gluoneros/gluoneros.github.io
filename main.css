@@ -1,22 +1,29 @@
-@charset "utf-8";
 /*
-1-Posicionamiento
+1-Paleta de colores
 2-Boxmodel
 3-Tipografia
-4-Efetos visuales
-5-Otros
+4-Estilo principal del header
+5-Ajustes responsivos para pantallas más pequeñas
+6-Navbar
 */
 
+/* Tipografia-Configuración básica para la fuente del documento */
+@charset "utf-8";
 @import url("https://fonts.googleapis.com/css?family=Raleway:800,700,400");
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600");
+body, html {
+    font-family: 'Raleway', Arial, sans-serif; /* Fuente principal con alternativa Arial */
+    overflow-x: hidden;                        /* Evitar el scroll horizontal */
+}
+
 
 /* Paleta de colores */
 :root {
-    --blue: #1b325f;
-    --lightblue: #9cc4e4;
-    --light:  #e9f2f9;
-    --softBlue2: #3a89c9;
-    --orange: #f26c4f;
+    --blue: #1b325f;                    /* azul.. para acentos y efectos */
+    --lightblue: #9cc4e4;               /* azul.. para acentos y efectos de hover */
+    --light:  #e9f2f9;                  /* azul.. para acentos y efectos de hover */
+    --softBlue2: #3a89c9;               /* azul.. para acentos y efectos de hover */
+    --orange: #f26c4f;                  /* Naranja para acentos y efectos de hover */
     --rojo: rgb(218, 11, 11);           /* Rojo para acentos y efectos de hover */
     --white: white;                     /* Blanco para texto principal */
     --black: rgba(0, 0, 0, 0.824);      /* Negro semitransparente */
@@ -25,18 +32,13 @@
     --ctaBackground: #1717e8ef;         /* Color de fondo para el botón CTA */
 }
 
-/* Reseteo de márgenes y paddings */
+/* Boxmodel-Reseteo de márgenes y paddings */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Configuración básica para la fuente del documento */
-body, html {
-    font-family: 'Raleway', Arial, sans-serif; /* Fuente principal con alternativa Arial */
-    overflow-x: hidden;                        /* Evitar el scroll horizontal */
-}
 
 /* Estilo principal del header */
 .header {
@@ -152,7 +154,7 @@ body, html {
     color: var(--orange);                            /* Cambiar color al pasar el cursor */
 }
 
-/* Estilo responsivo para pantallas pequeñas */
+/* Estilo responsivo navbar*/
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;                /* Cambiar a columna en pantallas pequeñas */
@@ -165,3 +167,26 @@ body, html {
         padding: 10px 0;                       /* Espacio entre enlaces en modo columna */
     }
 }
+
+/* Sections */
+h2 {
+    font-size: 3.1rem;
+    color: var(--blue);
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    margin: 0px 0 25px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+@media (max-width: 480px) {
+    h2 {
+        font-size: 3.1rem;
+        color: var(--blue);
+        font-family: 'Raleway', sans-serif;
+        font-weight: normal;
+        margin: 0px 0 25px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
