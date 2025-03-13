@@ -1,10 +1,11 @@
 /*
-1-Paleta de colores
-2-Boxmodel
-3-Tipografia
+1-Tipografia
+2-Paleta de colores
+3-Boxmodel
 4-Estilo principal del header
 5-Ajustes responsivos para pantallas más pequeñas
 6-Navbar
+7-About me
 */
 
 /* Tipografia-Configuración básica para la fuente del documento */
@@ -258,3 +259,97 @@ h2 {
     }
 }
 
+
+/* Skills */
+#skills {
+    background-color: var(--blue); /* Fondo azul oscuro */
+    padding: 40px 20px;
+}
+
+.skills-container {
+    max-width: 1200px; /* Ancho máximo para centrar el contenido */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.skills-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.skills-title h2 {
+    color: var(--white);
+    font-size: 2.8rem;
+    text-transform: uppercase;
+}
+
+/* Grid para las tarjetas de habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive */
+    gap: 20px; /* Espacio entre tarjetas */
+    justify-items: center; /* Centrar las tarjetas */
+}
+
+/* Estilo de cada tarjeta de habilidad */
+.skill-card {
+    background-color: var(--white); /* Fondo blanco para las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 100%; /* Asegura que ocupe el espacio disponible */
+    max-width: 200px; /* Limita el ancho máximo */
+}
+
+/* Efecto hover para las tarjetas */
+.skill-card:hover {
+    transform: translateY(-10px); /* Elevación al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    background-color: var(--orange); /* Cambio de color */
+    color: var(--white); /* Texto blanco al hacer hover */
+}
+
+/* Estilo de los íconos */
+.skill-icon {
+    width: 50px; /* Tamaño del ícono */
+    height: 50px;
+    margin-bottom: 10px; /* Espacio debajo del ícono */
+}
+
+/* Estilo del texto en las tarjetas */
+.skill-card h3 {
+    font-size: 1.2rem;
+    color: var(--blue); /* Color azul por defecto */
+    margin: 0;
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.skill-card:hover h3 {
+    color: var(--white); /* Texto blanco en hover */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Más pequeño en móviles */
+    }
+
+    .skill-card {
+        padding: 15px;
+        max-width: 150px; /* Reducir tamaño en pantallas pequeñas */
+    }
+
+    .skill-icon {
+        width: 40px; /* Reducir tamaño del ícono */
+        height: 40px;
+    }
+
+    .skill-card h3 {
+        font-size: 1rem;
+    }
+
+    .skills-title h2 {
+        font-size: 2.2rem;
+    }
+}
