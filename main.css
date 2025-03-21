@@ -282,6 +282,29 @@ h2 {
     text-transform: uppercase;
 }
 
+/* Contenedor de los stacks */
+.skills-stacks {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio entre stacks */
+}
+
+/* Grupo de cada stack */
+.stack-group {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para diferenciar */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Título de cada stack */
+.stack-title {
+    font-size: 1.8rem;
+    color: var(--lightblue);
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
 /* Grid para las tarjetas de habilidades */
 .skills-grid {
     display: grid;
@@ -351,5 +374,13 @@ h2 {
 
     .skills-title h2 {
         font-size: 2.2rem;
+    }
+
+    .stack-title {
+        font-size: 1.5rem;
+    }
+
+    .stack-group {
+        padding: 15px;
     }
 }
