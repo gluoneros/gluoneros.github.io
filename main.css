@@ -384,3 +384,136 @@ h2 {
         padding: 15px;
     }
 }
+
+/* Portfolio Section */
+#portfolio {
+    background-color: var(--white); /* Light background like About Me */
+    padding: 40px 20px;
+}
+
+.portfolio-container {
+    max-width: 1200px; /* Consistent max-width */
+    margin: 0 auto; /* Center content */
+}
+
+/* Ensure H2 inherits global styles, add margin if needed */
+#portfolio h2 {
+    margin-bottom: 40px; /* Space below title */
+}
+
+.portfolio-grid {
+    display: grid;
+    /* Adjust minmax for desired card size and responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between cards */
+}
+
+.project-card {
+    background-color: var(--light); /* Use the light blueish background variable */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Keep image corners rounded */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+    display: flex; /* Use flexbox for better control */
+    flex-direction: column; /* Stack image and content vertically */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.project-card img {
+    width: 100%; /* Make image fill card width */
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Cover the area, might crop */
+    display: block; /* Remove extra space below image */
+}
+
+.project-content {
+    padding: 20px; /* Space inside the content area */
+    flex-grow: 1; /* Allow content area to grow */
+    display: flex; /* Use flex */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    color: var(--blue); /* Use main blue color */
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--black); /* Use standard text color */
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow paragraph to take available space */
+}
+
+.project-links {
+    margin-top: auto; /* Push links to the bottom */
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons if needed */
+}
+
+.project-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--blue); /* Button background */
+    color: var(--white); /* Button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.project-button:hover {
+    background-color: var(--orange); /* Hover color */
+    color: var(--white);
+}
+
+
+/* Responsive Adjustments for Portfolio */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        /* Adjust card size for smaller screens if needed */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+    }
+
+    .project-button {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+    }
+
+    .project-card img {
+        height: 180px; /* Slightly smaller image height */
+    }
+}
+
+@media (max-width: 480px) {
+    #portfolio {
+        padding: 30px 15px; /* Reduce padding on very small screens */
+    }
+
+    .portfolio-grid {
+        /* Force single column on very small screens */
+        grid-template-columns: 1fr;
+    }
+
+    .project-card img {
+        height: 160px; /* Even smaller image height */
+    }
+}
