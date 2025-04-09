@@ -147,53 +147,49 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects">
-        <div class="projects-container">
-            <div class="container portfolio_title">
+    <div class="portfolio-container">
+        <h2>My Works</h2>
+        <p>Una selección de mis proyectos organizados por categoría.</p>
 
-                <!-- Title -->
-                <div class="section-title">
-                    <h2>Projects</h2>
-                    <h6>Proyectos realizados</h6>
-
-                </div>
-                <!--/Title -->
-
-            </div>
-
-            <div class="projects-sections">
-                <!-- Grupo de proyectos -->
-                <div class="project-group">
-                    <div class="project-group-title">Aplicaciones Web</div>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <img src="web-icon.svg" class="project-icon" alt="Icono">
-                            <h3>Portfolio</h3>
-                            <p>Diseño responsivo con HTML, CSS y JS.</p>
-                        </div>
-                        <div class="project-card">
-                            <img src="flask-icon.svg" class="project-icon" alt="Icono">
-                            <h3>App Flask</h3>
-                            <p>Sistema de predicción con Python.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Otro grupo -->
-                <div class="project-group">
-                    <div class="project-group-title">Machine Learning</div>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <img src="ml-icon.svg" class="project-icon" alt="Icono">
-                            <h3>Clasificador</h3>
-                            <p>Modelo de clasificación con scikit-learn.</p>
-                        </div>
-                        <!-- Agrega más tarjetas si quieres -->
-                    </div>
-                </div>
-            </div>
+        <!-- Botones de filtro -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+            <button class="filter-btn" onclick="filterProjects('python')">Backend Python</button>
+            <button class="filter-btn" onclick="filterProjects('java')">Backend Java</button>
+            <button class="filter-btn" onclick="filterProjects('ml')">Machine Learning</button>
         </div>
-    </section>
+
+        <!-- Tarjetas de proyectos -->
+        <div class="projects-grid">
+            <div class="project-card python" style="background-image: url('img/flask_project.jpg');">
+                <div class="card-content">
+                    <h3>HootsiTP </h3>
+                    <p>web application using Python, Flask, Docker, jinja2 and SQLAlchemy.</p>
+                    <a href="https://github.com/usuario/api-flask" target="_blank">Ver Proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card java" style="background-image: url('img/spring_project.jpg');">
+                <div class="card-content">
+                    <h3>Gestor Spring Boot</h3>
+                    <p>Aplicación backend con Java.</p>
+                    <a href="https://github.com/usuario/spring-gestor" target="_blank">Ver Proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card ml" style="background-image: url('img/ml_energy.jpg');">
+                <div class="card-content">
+                    <h3>Predicción Energía</h3>
+                    <p>Modelo Random Forest para renovables.</p>
+                    <a href="https://github.com/usuario/energia-ml" target="_blank">Ver Proyecto</a>
+                </div>
+            </div>
+
+            <!-- Agrega más tarjetas con sus respectivas imágenes y links -->
+        </div>
+
+    </div>
+
 
 
 
