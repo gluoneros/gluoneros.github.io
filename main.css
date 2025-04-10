@@ -386,11 +386,11 @@ h2 {
 }
 
 /* Projects Section */
-/* Projects */
+/* Portfolio */
 
 .portfolio-container {
     padding: 2rem;
-    background: #f9f9f9;
+    background: var(--white);;
     text-align: center;
     font-family: sans-serif;
 }
@@ -411,7 +411,7 @@ h2 {
 
 .filter-btn.active,
 .filter-btn:hover {
-    background-color: #4caf50;
+    background-color: var(--blue);
     color: white;
 }
 
@@ -538,7 +538,7 @@ h2 {
     background-color: var(--orange);
 }
 
-/* Animation */
+/* Animacion */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -550,7 +550,7 @@ h2 {
     }
 }
 
-/* Responsive adjustments */
+/* Ajustes responsivos */
 @media (max-width: 768px) {
     .project-tabs {
         flex-direction: column;
@@ -609,7 +609,7 @@ h2 {
 
 .card-content h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.2rem
 }
 
 .card-content p {
@@ -621,7 +621,7 @@ h2 {
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.4rem 0.8rem;
-    background-color: #4caf50;
+    background-color: var(--blue);
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -630,5 +630,5 @@ h2 {
 }
 
 .card-content a:hover {
-    background-color: #45a049;
+    background-color: var(--orange); /* Cambia a naranja al pasar el cursor */
 }
