@@ -1,0 +1,231 @@
+<!--
+Author: http://webthemez.com
+Note: Donate to remove backlink/credits in the footer(webthemez.com)--
+Any help: webthemez@gmail.com
+Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        dark: '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-primary">Gluoneros</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary transition">Inicio</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary transition">Sobre Mí</a>
+                    <a href="#skills" class="text-gray-600 hover:text-primary transition">Habilidades</a>
+                    <a href="#projects" class="text-gray-600 hover:text-primary transition">Proyectos</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Desarrollador Full Stack</h1>
+            <p class="text-xl md:text-2xl mb-8">Python | Java | Machine Learning</p>
+            <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Contáctame</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Sobre Mí</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <img src="img/aboutMe.jpg" alt="Profile" class="rounded-lg shadow-xl">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        Soy un profesional en ingeniería de software con licenciatura en matemáticas y física. Como ingeniero DevOps y administrador certificado de Linux, cuento con más de seis años de experiencia en administración de sistemas y redes. Mi experiencia abarca scripting y automatización usando Python y Bash, así como la gestión de procesos de despliegue para permitir la entrega continua de soluciones de software de alta calidad. Además, soy un apasionado desarrollador Full-Stack con talento para crear interfaces de usuario intuitivas y sistemas backend robustos, asegurando experiencias digitales impactantes y eficientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Habilidades</h2>
+            
+            <!-- Python Stack -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6">Full Stack Python</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/Python.png" alt="Python" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Python</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/Django.png" alt="Django" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Django</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/Flask.png" alt="Flask" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Flask</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/FastAPI.png" alt="FastAPI" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">FastAPI</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java Stack -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6">Full Stack Java</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/Java.png" alt="Java" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Java</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/Spring.png" alt="Spring" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Spring</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/spring-boot.png" alt="Spring Boot" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Spring Boot</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/JavaScript.png" alt="JavaScript" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">JavaScript</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-6">Machine Learning</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/NumPy.png" alt="NumPy" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">NumPy</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/Pandas.png" alt="Pandas" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">Pandas</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/TensorFlow.png" alt="TensorFlow" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">TensorFlow</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="img/PyTorch.png" alt="PyTorch" class="w-16 h-16 mx-auto mb-4">
+                        <h4 class="font-semibold">PyTorch</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Proyectos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                    <img src="img/flask_project.jpg" alt="HootsiTP" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">HootsiTP</h3>
+                        <p class="text-gray-600 mb-4">Aplicación web usando Python, Flask, Docker, jinja2 y SQLAlchemy.</p>
+                        <a href="https://github.com/usuario/api-flask" target="_blank" class="text-primary hover:text-secondary">Ver Proyecto →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                    <img src="img/spring_project.jpg" alt="Gestor Spring Boot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Gestor Spring Boot</h3>
+                        <p class="text-gray-600 mb-4">Aplicación backend con Java.</p>
+                        <a href="https://github.com/usuario/spring-gestor" target="_blank" class="text-primary hover:text-secondary">Ver Proyecto →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                    <img src="img/ml_energy.jpg" alt="Predicción Energía" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Predicción Energía</h3>
+                        <p class="text-gray-600 mb-4">Modelo Random Forest para renovables.</p>
+                        <a href="https://github.com/usuario/energia-ml" target="_blank" class="text-primary hover:text-secondary">Ver Proyecto →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Contacto</h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Nombre</label>
+                        <input type="text" class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-primary">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-primary">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Mensaje</label>
+                        <textarea class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-primary" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Gluoneros. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

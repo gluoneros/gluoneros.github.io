@@ -2,9 +2,6 @@
 *.asp
 *.cer
 *.csr
-*.css
-*.htm
-*.html
 *.js
 *.jsp
 *.php
@@ -14,4 +11,8 @@
 *.xhtml
 
 .idea
+./idea
+.vscode
+./vscode
+
 *.xml
