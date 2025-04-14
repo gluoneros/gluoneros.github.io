@@ -928,3 +928,23 @@ h2 {
         padding: 20px;
     }
 }
+
+/* Footer */
+footer {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 20px 0;
+    text-align: center;
+}
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+footer a {
+    color: var(--orange);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
