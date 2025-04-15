@@ -1,882 +1,652 @@
 /*
 1-Tipografia
 2-Paleta de colores
-3-Boxmodel
-4-Estilo principal del header
-5-Ajustes responsivos para pantallas más pequeñas
-6-Navbar
-7-About me
+3-Boxmodel & Base Styles
+4-Header
+5-Navbar (Including Sticky)
+6-General Section & Container Styling (Consistency)
+7-About Me
+8-Skills
+9-Portfolio (Enhanced)
+10-Experience
+11-Contact
+12-Footer
+13-Animations & Transitions
+14-Responsive Adjustments
 */
 
-/* Tipografia-Configuración básica para la fuente del documento */
+/* 1- Tipografia */
 @charset "utf-8";
-@import url("https://fonts.googleapis.com/css?family=Raleway:800,700,400");
-@import url("https://fonts.googleapis.com/css?family=Signika:400,600");
-body, html {
-    font-family: 'Raleway', Arial, sans-serif; /* Fuente principal con alternativa Arial */
-    overflow-x: hidden;                        /* Evitar el scroll horizontal */
-}
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700,800"); /* Removed 600 if not used, added 400 */
+@import url("https://fonts.googleapis.com/css?family=Signika:400,600"); /* Keep if used, e.g., in form inputs */
 
-
-/* Paleta de colores */
+/* 2- Paleta de colores */
 :root {
-    --blue: #1b325f;                    /* azul.. para acentos y efectos */
-    --lightblue: #9cc4e4;               /* azul.. para acentos y efectos de hover */
-    --light:  #e9f2f9;                  /* azul.. para acentos y efectos de hover */
-    --softBlue2: #3a89c9;               /* azul.. para acentos y efectos de hover */
-    --orange: #f26c4f;                  /* Naranja para acentos y efectos de hover */
-    --rojo: rgb(218, 11, 11);           /* Rojo para acentos y efectos de hover */
-    --white: white;                     /* Blanco para texto principal */
-    --black: rgba(0, 0, 0, 0.824);      /* Negro semitransparente */
-    --softBlue: #1717e8ef;              /* Azul suave para fondos */
-    --textColor: #f0f0f0;               /* Color de texto secundario */
-    --ctaBackground: #1717e8ef;         /* Color de fondo para el botón CTA */
+    --blue: #1b325f;
+    --lightblue: #9cc4e4;
+    --light: #e9f2f9;
+    --softBlue2: #3a89c9;
+    --orange: #f26c4f;
+    --rojo: rgb(218, 11, 11); /* Consider if rojo is actually used */
+    --white: #ffffff;
+    --black: rgba(0, 0, 0, 0.85); /* Slightly darker black */
+    --softBlue: #1717e8ef; /* Consider if softBlue is used */
+    --textColor: #f0f0f0;
+    --ctaBackground: var(--blue); /* Use variable */
+    --sectionPaddingY: 80px; /* Standard vertical padding */
+    --sectionPaddingX: 20px; /* Standard horizontal padding */
+    --containerWidth: 1140px; /* Standard container width */
+    --cardBg: var(--white);
+    --cardShadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --cardHoverShadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --borderRadius: 8px;
 }
 
-/* Boxmodel-Reseteo de márgenes y paddings */
+/* 3- Boxmodel & Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-
-/* Estilo principal del header */
-.header {
-    display: flex;                             /* Usamos flex para centrar contenido */
-    flex-direction: column;                    /* Apilamos los elementos verticalmente */
-    align-items: center;                       /* Centramos horizontalmente */
-    justify-content: center;                   /* Centramos verticalmente */
-    background-image: url('./img/header-only-min.png'); /* Imagen de fondo */
-    background-size: cover;                    /* Imagen cubre el área */
-    background-position: center;               /* Imagen centrada */
-    padding: 60px 20px;                        /* Espacio alrededor del contenido */
-    text-align: center;                        /* Centrar texto */
-    color: var(--lightblue);                       /* Color blanco para el texto */
-    height: 320px;                             /* Altura fija del header */
-    width: 100%;                               /* Ocupa todo el ancho de la pantalla */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
 }
 
-/* Contenedor del logo y título */
-.logo-title {
-    text-align: center;                        /* Centrar contenido */
-    max-width: 100%;                           /* Se adapta al ancho disponible */
+body {
+    font-family: 'Raleway', Arial, sans-serif;
+    overflow-x: hidden;
+    color: var(--black); /* Default text color */
+    background-color: var(--white); /* Default background */
+    line-height: 1.6;
+    margin: 0; /* <-- ADD OR ENSURE THIS LINE IS PRESENT */
+    /* The padding-top is handled by JS for the sticky nav */
+    padding-top: 0;
+    transition: padding-top 0.4s ease;
 }
 
-/* Estilo de la imagen del logo */
-.logo-title img {
-    max-height: 80px;                          /* Altura máxima del logo */
-    margin-bottom: 20px;                       /* Espacio debajo del logo */
+/* Add this class to body via JS when navbar is sticky */
+body.navbar-sticky {
+    /* The actual padding value will be set by JS */
 }
 
-/* Estilo del título principal */
-.logo-title h1 {
-    font-size: 2.5rem;                         /* Tamaño del texto */
-    margin: 0;                                 /* Eliminar margen */
-    font-weight: bold;                         /* Negrita para resaltar */
-    color: var(--white);                       /* Color blanco */
+a {
+    color: var(--softBlue2);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Subtítulo del header */
-.logo-title h4 {
-    font-size: 0.7rem;                           /* Tamaño del subtítulo */
-    font-weight: 500;                          /* Peso medio */
-    color: var(--textColor);                   /* Color gris claro */
-    margin: 5px 0 15px;                        /* Espacio arriba y abajo */
+a:hover {
+    color: var(--orange);
 }
 
-/* Botón de llamada a la acción */
-.cta-button {
-    display: inline-block;                     /* Elemento en línea pero con padding */
-    padding: 10px 20px;                        /* Espacio interno del botón */
-    margin-top: 10px;                          /* Espacio arriba */
-    background-color: var(--blue);    /* Fondo azul */
-    color: var(--white);                       /* Texto blanco */
-    text-decoration: none;                     /* Sin subrayado */
-    border-radius: 5px;                        /* Bordes redondeados */
-    font-weight: bold;                         /* Texto en negrita */
-    transition: background-color 0.3s;         /* Efecto suave en el cambio de color */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below images */
 }
 
-/* Efecto hover para el botón */
-.cta-button:hover {
-    background-color: var(--orange);             /* Fondo rojo al pasar el cursor */
-}
-
-/* Ajustes responsivos para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .header {
-        padding: 40px 10px;                    /* Menos padding en pantallas pequeñas */
-        height: auto;                          /* Altura se adapta al contenido */
-    }
-    .logo-title img {
-        max-height: 60px;                      /* Reducir tamaño del logo */
-    }
-    .logo-title h1 {
-        font-size: 2rem;                       /* Reducir tamaño del título */
-    }
-    .logo-title h4 {
-        font-size: 0.9rem;                     /* Reducir tamaño del subtítulo */
-    }
-    .cta-button {
-        padding: 8px 16px;                     /* Menor padding en el botón */
-        font-size: 0.9rem;                     /* Reducir tamaño de texto del botón */
-    }
-}
-
-/* Estilo general del navbar */
-.navbar {
-    display: flex;                             /* Alinear elementos en fila */
-    justify-content: space-around;             /* Espacio uniforme entre enlaces */
-    align-items: center;                       /* Centrado vertical */
-    background-color: var(--blue);                 /* Fondo oscuro */
-    border-radius: 8px;                        /* Bordes redondeados */
-    padding: 15px 30px;                        /* Espacio interno */
-    width: 100%;                               /* Ocupa todo el ancho del contenedor */
-    max-width: 900px;                          /* Limitar ancho en pantallas grandes */
-    margin: 20px auto 0;                       /* Espacio superior para separar del header */
-    position: relative;                        /* Mantener el navbar en flujo normal */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra */
-}
-
-/* Estilo de los enlaces */
-.navbar a {
-    color: white;                              /* Texto blanco */
-    text-decoration: none;                     /* Sin subrayado */
-    font-size: 15px;                           /* Tamaño de fuente */
-    text-transform: uppercase;                 /* Texto en mayúsculas */
-    font-weight: bold;                         /* Negrita */
-    transition: color 0.3s;                    /* Transición de color al pasar el cursor */
-    padding: 5px 15px;                         /* Espacio interno para mejor clicabilidad */
-}
-
-/* Efecto hover */
-.navbar a:hover {
-    color: var(--orange);                            /* Cambiar color al pasar el cursor */
-}
-
-/* Estilo responsivo navbar*/
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;                /* Cambiar a columna en pantallas pequeñas */
-        padding: 10px;                         /* Reducir padding */
-        width: 100%;                           /* Ocupa todo el ancho en móvil */
-    }
-
-    .navbar a {
-        font-size: 14px;                       /* Reducir tamaño de texto */
-        padding: 10px 0;                       /* Espacio entre enlaces en modo columna */
-    }
-}
-
-/* Sections */
-h2 {
-    font-size: 3.1rem;
-    color: var(--blue);
+h1, h2, h3, h4 {
     font-family: 'Raleway', sans-serif;
-    font-weight: normal;
-    margin: 0px 0 25px 0;
-    text-align: center;
-    text-transform: uppercase;
-}
-@media (max-width: 480px) {
-    h2 {
-        font-size: 3.1rem;
-        color: var(--blue);
-        font-family: 'Raleway', sans-serif;
-        font-weight: normal;
-        margin: 0px 0 25px 0;
-        text-align: center;
-        text-transform: uppercase;
-    }
-}
-
-/* About me -----------------------------------------*/
-/* Sección About Me ---------------------------------*/
-#aboutMe {
-    background-color: var(--white); /* Fondo blanco */
-    padding: 40px 20px;
-}
-
-.about-title {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.about-title h2 {
-    font-size: 2.8rem;
     color: var(--blue);
-    margin-bottom: 10px;
+    margin-bottom: 0.8em; /* Consistent bottom margin */
+    line-height: 1.3;
 }
 
-.about-title h4 {
-    font-size: 1.2rem;
-    color: var(--softBlue2); /* Color de subtítulo */
-    margin-top: 0;
+h1 { font-size: 2.8rem; font-weight: 800; }
+h2 { font-size: 2.5rem; font-weight: 700; text-transform: uppercase; } /* Standardized H2 */
+h3 { font-size: 1.6rem; font-weight: 700; }
+h4 { font-size: 1.1rem; font-weight: 400; color: var(--softBlue2); margin-top: -0.5em; margin-bottom: 1.5em;} /* Adjusted H4 */
+
+p {
+    margin-bottom: 1em;
+    color: var(--black);
+}
+
+/* 4- Header */
+#home {
+    padding: 0; /* Ensure the container section itself has NO padding */
+    margin: 0;  /* And no margin */
+    /* It should already be display: block by default */
+}
+
+/* Make sure the .header rule still has its own padding if needed
+   for content spacing INSIDE the background image */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    width: 100%;
+    /* Padding here is okay, it's inside the header element */
+    padding: 40px var(--sectionPaddingX);
+    text-align: center;
+    color: var(--white);
+    background-image: url('./img/header-only-min.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional */
+}
+
+/* Keep logo-title styles as they are, they work with flex centering */
+.logo-title {
+    text-align: center; /* Already centers text content */
+    max-width: 90%; /* Prevent content from getting too wide on large screens */
+}
+
+.logo-title img {
+    max-height: 75px;
+    margin-bottom: 20px; /* Increased space */
+    display: inline-block; /* Ensure it behaves well with text-align */
+}
+
+.logo-title h1 {
+    font-size: 3.2rem; /* Slightly larger */
+    margin: 0 0 10px 0; /* Adjust margin */
+    font-weight: 800;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* Slightly stronger shadow */
+}
+
+.logo-title h4 {
+    font-size: 1rem; /* Increase size */
     font-weight: 400;
+    color: var(--textColor);
+    margin: 0 0 25px 0; /* Adjust margin */
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Increase spacing */
 }
 
+/* Keep CTA button styles */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    margin-top: 10px; /* Adjusted margin */
+    background-color: var(--ctaBackground);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--borderRadius);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background-color: var(--orange);
+    transform: translateY(-3px); /* Enhanced hover effect */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* No changes needed for the header's responsive rules  */
+/* 5- Navbar */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center links */
+    align-items: center;
+    background-color: var(--blue);
+    padding: 10px 0; /* Reduced vertical padding */
+    width: 100%;
+    margin: 0 auto; /* Remove top margin, handled by section padding */
+    position: relative; /* Changed from relative */
+    z-index: 999; /* Below sticky */
+    transition: all 0.4s ease; /* Smooth transition for sticky */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
+}
+
+/* Styles for the sticky navbar */
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(27, 50, 95, 0.97); /* Slightly transparent blue */
+    backdrop-filter: blur(5px); /* Optional: blur effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    border-bottom: none; /* Remove border when sticky */
+}
+
+.navbar a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem; /* Slightly smaller */
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 18px; /* Adjusted padding */
+    border-radius: 5px; /* Add border-radius for hover effect */
+    margin: 0 5px; /* Space between links */
+}
+
+.navbar a:hover,
+.navbar a.active { /* Add active class styling if desired (JS needed) */
+    color: var(--white);
+    background-color: var(--orange); /* Highlight on hover */
+}
+
+/* 6- General Section & Container Styling */
+section {
+    padding: var(--sectionPaddingY) var(--sectionPaddingX);
+    overflow: hidden; /* Prevent horizontal scroll from animations */
+}
+
+/* Alternating backgrounds */
+#aboutMe, #Portfolio, #contact {
+    background-color: var(--white);
+}
+
+#skills, #clients {
+    background-color: var(--blue);
+}
+
+#skills .section-title h2,
+#skills .section-title h4,
+#clients .section-title h2,
+#clients .section-title h4 {
+    color: var(--white); /* White titles on dark sections */
+}
+#skills .section-title h4,
+#clients .section-title h4 {
+    color: var(--lightblue); /* Lighter subtitle on dark sections */
+}
+
+
+.section-container {
+    max-width: var(--containerWidth);
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px; /* Consistent margin below titles */
+}
+
+
+/* 7- About Me */
+#aboutMe {
+    /* Uses general section padding */
+}
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Imagen y texto en proporción 1:2 */
-    gap: 10px;
+    grid-template-columns: 1fr 1.5fr; /* Adjust ratio if needed */
+    gap: 40px; /* Increased gap */
     align-items: center;
 }
 
 .about-image img {
-    width: 95%; /* Ajusta el tamaño según sea necesario */
-    max-width: 100%; /* Ancho máximo para evitar que sea demasiado grande */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin: auto; /* Centra horizontalmente */
-    display: block; /* Asegura que el margen auto funcione correctamente */
-    vertical-align: middle;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--cardShadow);
+    width: 100%; /* Let grid handle size */
+    max-width: 400px; /* Limit image size if needed */
+    margin: 0 auto; /* Center if max-width is applied */
 }
-
 
 .about-text p {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--black);
 }
 
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr; /* Cambia a una sola columna */
-        gap: 15px;
-    }
-
-    .about-title h2 {
-        font-size: 2.2rem;
-    }
-
-    .about-title h4 {
-        font-size: 1.2rem;
-    }
-
-    .about-text p {
-        font-size: 1rem;
-    }
-}
-
-
-/* ----Skills ---------------*/
+/* 8- Skills */
 #skills {
-    background-color: var(--blue); /* Fondo azul oscuro */
-    padding: 40px 20px;
+    /* Uses general section padding & dark background */
 }
-
-.skills-container {
-    max-width: 1200px; /* Ancho máximo para centrar el contenido */
-    margin: 0 auto; /* Centrar horizontalmente */
-}
-
-.skills-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.skills-title h2 {
-    color: var(--white);
-    font-size: 2.8rem;
-    text-transform: uppercase;
-}
-
-.skills-title h4 {
-    font-size: 1.2rem;
-    color: var(--lightblue); /* Color de subtítulo */
-    margin-top: 0;
-    font-weight: 400;
-}
-
-/* Contenedor de los stacks */
 .skills-stacks {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Espacio entre stacks */
+    gap: 50px; /* Increased gap */
 }
 
-/* Grupo de cada stack */
 .stack-group {
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para diferenciar */
-    border-radius: 10px;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05); /* More subtle background */
+    border-radius: var(--borderRadius);
+    padding: 30px;
 }
 
-/* Título de cada stack */
 .stack-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Adjusted size */
     color: var(--lightblue);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-transform: uppercase;
+    font-weight: 700;
 }
 
-/* Grid para las tarjetas de habilidades */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive */
-    gap: 20px; /* Espacio entre tarjetas */
-    justify-items: center; /* Centrar las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Slightly smaller min */
+    gap: 25px;
+    justify-items: center;
 }
 
-/* Estilo de cada tarjeta de habilidad */
 .skill-card {
-    background-color: var(--white); /* Fondo blanco para las tarjetas */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px;
+    background-color: var(--cardBg);
+    border-radius: var(--borderRadius);
+    padding: 25px 15px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    width: 100%; /* Asegura que ocupe el espacio disponible */
-    max-width: 200px; /* Limita el ancho máximo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: var(--cardShadow);
+    width: 100%;
+    max-width: 160px; /* Limit width */
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Efecto hover para las tarjetas */
 .skill-card:hover {
-    transform: translateY(-10px); /* Elevación al pasar el cursor */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    background-color: var(--orange); /* Cambio de color */
-    color: var(--white); /* Texto blanco al hacer hover */
+    transform: translateY(-8px);
+    box-shadow: var(--cardHoverShadow);
+    background-color: var(--orange);
 }
 
-/* Estilo de los íconos */
 .skill-icon {
-    width: 50px; /* Tamaño del ícono */
-    height: 50px;
-    margin-bottom: 10px; /* Espacio debajo del ícono */
+    width: 45px; /* Adjusted size */
+    height: 45px;
+    margin-bottom: 15px;
+    object-fit: contain; /* Ensure icon aspect ratio is maintained */
 }
 
-/* Estilo del texto en las tarjetas */
 .skill-card h3 {
-    font-size: 1.2rem;
-    color: var(--blue); /* Color azul por defecto */
+    font-size: 1rem; /* Adjusted size */
+    color: var(--blue);
     margin: 0;
-    transition: color 0.3s ease; /* Transición suave del color */
+    font-weight: 600; /* Signika font weight */
+    transition: color 0.3s ease;
+    font-family: 'Signika', sans-serif; /* Use Signika for skill names */
 }
 
 .skill-card:hover h3 {
-    color: var(--white); /* Texto blanco en hover */
+    color: var(--white);
 }
 
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Más pequeño en móviles */
-    }
 
-    .skill-card {
-        padding: 15px;
-        max-width: 150px; /* Reducir tamaño en pantallas pequeñas */
-    }
-
-    .skill-icon {
-        width: 40px; /* Reducir tamaño del ícono */
-        height: 40px;
-    }
-
-    .skill-card h3 {
-        font-size: 1rem;
-    }
-
-    .skills-title h2 {
-        font-size: 2.2rem;
-    }
-
-    .stack-title {
-        font-size: 1.5rem;
-    }
-
-    .stack-group {
-        padding: 15px;
-    }
+/* 9- Portfolio (Enhanced) */
+#Portfolio {
+    /* Uses general section padding */
 }
 
-/* ---------Projects Section ------------------------------*/
-/* ---------Portfolio -------------------------------------*/
-
-.portfolio-container {
-    padding: 2rem;
-    background: var(--white);;
-    text-align: center;
-    font-family: sans-serif;
-}
-
-.section-title h4 {
-    font-size: 1.2rem;
-    color: var(--softBlue2); /* Color de subtítulo */
-    margin-top: 0;
-    font-weight: 400;
-}
-
+/* Improved Filter Buttons */
 .filter-buttons {
-    margin-bottom: 1.5rem;
+    margin-bottom: 40px; /* Increased space */
+    text-align: center;
 }
 
 .filter-btn {
-    padding: 0.6rem 1.2rem;
-    margin: 0.3rem;
-    border: none;
-    background-color: #ddd;
+    padding: 10px 22px; /* Adjusted padding */
+    margin: 5px;
+    border: 1px solid var(--lightblue); /* Use theme color border */
+    background-color: transparent; /* Transparent background */
+    color: var(--blue); /* Theme color text */
     cursor: pointer;
-    border-radius: 6px;
-    transition: background 0.3s ease;
+    border-radius: 50px; /* Pill shape */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
     background-color: var(--blue);
-    color: white;
+    border-color: var(--blue);
+    color: var(--white);
+    transform: translateY(-2px);
 }
 
+/* Enhanced Project Grid & Cards */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.project-card {
-    padding: 1rem;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: scale(1.03);
-}
-
-
-/* Portfolio Section */
-.portfolio-container {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.project-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.tab-button {
-    padding: 10px 20px;
-    background-color: var(--blue);
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.tab-button:hover {
-    background-color: var(--orange);
-}
-
-.tab-button.active {
-    background-color: var(--softBlue2);
-    transform: scale(1.05);
-}
-
-.portfolio-grid {
-    display: grid;
+    /* Increased minmax for potentially larger cards */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.project-tab-content {
-    display: none;
-}
-
-.project-tab-content.active {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    animation: fadeIn 0.5s ease-in;
+    gap: 30px; /* Increased gap */
 }
 
 .project-card {
-    background-color: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    top: 0px;
-
-    padding: 32px 24px;
-    margin: 12px;
-    text-decoration: none;
-    border: 1px solid #f2f8f9;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    border: 1px solid var(--blue);
-    box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.5);
-    z-index: 500;
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-content {
-    padding: 20px;
-}
-
-.project-content h3 {
-    color: var(--blue);
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.project-content p {
-    color: var(--black);
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 10px;
-}
-
-.project-button {
-    padding: 8px 15px;
-    background-color: var(--blue);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-}
-
-.project-button:hover {
-    background-color: var(--orange);
-}
-
-/* Animacion */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-    .project-tabs {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-tab-content.active {
-        grid-template-columns: 1fr;
-    }
-}
-.project-card {
-    position: relative;
-    height: 250px;
+    position: relative; /* Needed for absolute positioning of content */
+    height: 280px; /* Slightly increased height */
     background-size: cover;
     background-position: center;
-    border-radius: 12px;
-    overflow: hidden;
+    border-radius: var(--borderRadius);
+    overflow: hidden; /* Keep content contained */
     color: white;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    box-shadow: var(--cardShadow);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
+    display: block; /* Ensure display is block */
+    border: none; /* Remove previous border */
+    padding: 0; /* Remove previous padding */
+    margin: 0; /* Remove previous margin */
+    opacity: 1; /* Reset animation opacity */
+    transform: none; /* Reset animation transform */
+    animation: none; /* Remove old animation if not needed */
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.project-card::before { /* Dark overlay */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 80%); /* Gradient overlay */
+    opacity: 0.8; /* Start with some opacity */
+    transition: opacity 0.4s ease;
 }
 
 .project-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-10px) scale(1.02); /* Combined effect */
+    box-shadow: var(--cardHoverShadow);
 }
 
-.card-content {
-    background: rgba(0, 0, 0, 0.6);
+.project-card:hover::before {
+    opacity: 0.95; /* Darken overlay on hover */
+}
+
+.project-card .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    padding: 1rem;
+    padding: 20px 25px; /* Adjusted padding */
+    background: transparent; /* Remove background from content div */
     text-align: left;
-    transition: background 0.3s ease;
+    z-index: 2; /* Ensure content is above overlay */
+    transform: translateY(30px); /* Start slightly hidden */
+    opacity: 0; /* Start hidden */
+    transition: transform 0.4s ease 0.1s, opacity 0.4s ease 0.1s; /* Delayed transition */
 }
 
 .project-card:hover .card-content {
-    background: rgba(0, 0, 0, 0.75);
+    transform: translateY(0); /* Slide up on hover */
+    opacity: 1; /* Fade in on hover */
 }
 
 .card-content h3 {
-    margin: 0;
-    font-size: 1.2rem
+    margin: 0 0 8px 0; /* Adjusted margin */
+    font-size: 1.4rem; /* Adjusted size */
+    color: var(--white); /* Ensure text is white */
+    font-weight: 700;
 }
 
 .card-content p {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
+    margin: 0 0 15px 0; /* Adjusted margin */
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    line-height: 1.5;
 }
 
 .card-content a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    background-color: var(--blue);
-    color: white;
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    gap: 8px; /* Space between text and icon */
+    margin-top: 0; /* Removed top margin */
+    padding: 8px 18px;
+    background-color: var(--orange); /* Use orange for contrast */
+    color: var(--white);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 50px; /* Pill shape */
     font-size: 0.85rem;
-    transition: background 0.3s ease;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+.card-content a i { /* Style for the icon */
+    font-size: 0.8rem;
 }
 
 .card-content a:hover {
-    background-color: var(--orange); /* Cambia a naranja al pasar el cursor */
+    background-color: var(--white); /* White background on hover */
+    color: var(--orange); /* Orange text on hover */
+    transform: translateY(-2px);
+}
+
+/* JS will hide/show these based on filter */
+.project-card.hidden {
+    display: none;
 }
 
 
-/* ------Experience ---------------*/
-
-/* ------ Experience Section (#clients) ---------------*/
-/* ------ Experience Section (#clients) ---------------*/
-/* ------ Experience Section (#clients) ---------------*/
-
-#clients { /* Target the section ID */
-    background-color: var(--blue); /* Dark background, consistent with #skills */
-    padding: 60px 20px; /* Consistent vertical and horizontal padding */
-    color: var(--white); /* Default text color for the section (mainly title) */
+/* 10- Experience */
+#clients {
+    /* Uses general section padding & dark background */
 }
-
-.experience-container {
-    max-width: 1100px; /* Adjust max-width as needed, similar to other sections */
-    margin: 0 auto; /* Center the content */
-}
-
-.experience-title {
-    text-align: center;
-    margin-bottom: 40px; /* Space below the title block */
-}
-
-.experience-title h2 {
-    color: var(--white); /* White title on dark background */
-    font-size: 2.8rem; /* Consistent H2 size */
-    text-transform: uppercase;
-    margin-bottom: 10px; /* Space between H2 and H4 */
-}
-
-.experience-title h4 {
-    font-size: 1.2rem;
-    color: var(--lightblue); /* Lighter blue for subtitle */
-    font-weight: 400;
-    margin-top: 0;
-}
-
 .experience-grid {
     display: grid;
-    /* Creates responsive columns: they try to be at least 320px wide,
-       fitting as many as possible per row, and distributing space evenly. */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px; /* Space between the experience cards */
+    gap: 30px;
 }
 
 .experience-card {
-    background-color: var(--light); /* Use the light blueish background for cards */
-    color: var(--blue); /* Dark text color for contrast inside the card */
-    padding: 25px 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background-color: var(--light);
+    color: var(--blue);
+    padding: 30px; /* Increased padding */
+    border-radius: var(--borderRadius);
+    box-shadow: var(--cardShadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 6px solid var(--orange); /* Accent border on the left */
+    border-left: 5px solid var(--orange); /* Keep accent */
 }
 
 .experience-card:hover {
-    transform: translateY(-8px); /* Lift effect on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-8px);
+    box-shadow: var(--cardHoverShadow);
 }
 
 .experience-header {
-    margin-bottom: 15px; /* Space below the role and company */
+    margin-bottom: 15px;
 }
 
-.experience-role { /* h3 inside card */
-    font-size: 1.7rem;
-    color: var(--blue); /* Main title color */
-    font-weight: 700; /* Bolder */
+.experience-role {
+    font-size: 1.5rem; /* Adjusted size */
+    color: var(--blue);
+    font-weight: 700;
     margin-bottom: 5px;
 }
 
-.experience-company { /* span inside card */
-    font-size: 1.1rem;
-    color: var(--softBlue2); /* Use a distinct color */
+.experience-company {
+    font-size: 1rem; /* Adjusted size */
+    color: var(--softBlue2);
     font-weight: 600;
-    display: block; /* Ensure it takes its own line if needed */
+    display: block;
+    margin-bottom: 10px; /* Added margin */
 }
 
 .experience-dates {
-    font-size: 0.95rem;
-    color: #506580; /* A slightly muted color */
+    font-size: 0.9rem; /* Adjusted size */
+    color: #506580;
     font-style: italic;
     margin-bottom: 15px;
-    border-bottom: 1px solid var(--lightblue); /* Subtle separator */
+    border-bottom: 1px solid var(--lightblue);
     padding-bottom: 10px;
+    font-family: 'Signika', sans-serif;
 }
 
 .experience-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--black); /* Standard text color for description */
+    color: var(--black);
 }
 
-/* Responsive adjustments for experience section if needed */
-@media (max-width: 768px) {
-    #clients {
-        padding: 40px 15px; /* Reduce padding slightly on smaller screens */
-    }
 
-    .experience-title h2 {
-        font-size: 2.2rem; /* Adjust title size */
-    }
-
-    .experience-title h4 {
-        font-size: 1.1rem; /* Adjust subtitle size */
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr; /* Force single column */
-        gap: 20px; /* Reduce gap */
-    }
-
-    .experience-card {
-        padding: 20px 25px;
-    }
-
-    .experience-role {
-        font-size: 1.5rem;
-    }
-}
-
-/* ---------Contact Section ------------------------------*/
-/* ---------Contact Section ------------------------------*/
-/* ------ Contact Section ---------------*/
+/* 11- Contact */
 #contact {
-    background-color: var(--white);
-    padding: 60px 20px;
-}
-
-.contact-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.contact-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.contact-title h2 {
-    color: var(--blue);
-    font-size: 2.8rem;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.contact-title h4 {
-    font-size: 1.2rem;
-    color: var(--softBlue2);
-    font-weight: 400;
-    margin-top: 0;
+    /* Uses general section padding */
+    background-color: var(--light); /* Ensure light background explicitly */
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 50px; /* Increased gap */
 }
 
-.contact-info {
-    background-color: var(--light);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.contact-info, .contact-form {
+    background-color: var(--white); /* White background for cards */
+    padding: 35px; /* Increased padding */
+    border-radius: var(--borderRadius);
+    box-shadow: var(--cardShadow);
 }
 
-.contact-info h3 {
+.contact-info h3, .contact-form h3 {
     color: var(--blue);
     font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 25px; /* Increased margin */
+    text-align: left; /* Align left */
+    border-bottom: 2px solid var(--lightblue); /* Add underline */
+    padding-bottom: 10px;
+    display: inline-block; /* Make border fit text */
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    gap: 15px; /* Gap between icon and text */
 }
 
 .contact-icon {
     width: 24px;
     height: 24px;
-    margin-right: 15px;
+    /* Icons provided as images, keep size */
+    flex-shrink: 0; /* Prevent icon shrinking */
 }
 
 .contact-item p {
     color: var(--black);
     font-size: 1rem;
+    margin: 0; /* Remove default p margin */
 }
+.contact-item p a { /* Style links within contact items */
+    color: var(--softBlue2);
+    font-weight: 600;
+}
+.contact-item p a:hover {
+    color: var(--orange);
+    text-decoration: underline;
+}
+
 
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    /* justify-content: center; Remove center */
+    gap: 15px; /* Reduced gap */
     margin-top: 30px;
+    padding-top: 20px; /* Add space above */
+    border-top: 1px solid var(--lightblue); /* Separator */
 }
 
 .social-link img {
-    width: 32px;
-    height: 32px;
-    transition: transform 0.3s ease;
+    width: 30px; /* Slightly smaller */
+    height: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
 }
 
 .social-link:hover img {
-    transform: scale(1.1);
+    transform: scale(1.15); /* Increase scale effect */
+    opacity: 1;
 }
 
-.contact-form {
-    background-color: var(--light);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h3 {
-    color: var(--blue);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
+/* Contact Form */
 .form-group {
     margin-bottom: 20px;
 }
@@ -884,74 +654,179 @@ h2 {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 14px; /* Increased padding */
+    border: 1px solid #ccc; /* Lighter border */
+    border-radius: var(--borderRadius);
     font-family: 'Raleway', sans-serif;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(27, 50, 95, 0.15); /* Focus ring */
 }
 
 .submit-btn {
     background-color: var(--blue);
     color: var(--white);
     border: none;
-    padding: 12px 25px;
-    border-radius: 4px;
-    font-size: 1rem;
+    padding: 14px 30px; /* Increased padding */
+    border-radius: var(--borderRadius);
+    font-size: 1rem; /* Adjusted size */
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Don't force full width */
+    display: inline-block; /* Align properly */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .submit-btn:hover {
     background-color: var(--orange);
+    transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
 
-    .contact-title h2 {
-        font-size: 2.2rem;
-    }
-
-    .contact-title h4 {
-        font-size: 1.1rem;
-    }
-
-    .contact-info,
-    .contact-form {
-        padding: 20px;
-    }
-}
-
-/* Footer */
+/* 12- Footer */
 footer {
     background-color: var(--blue);
-    color: var(--white);
-    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    padding: 30px var(--sectionPaddingX); /* Increased padding */
     text-align: center;
 }
-footer p {
-    margin: 0;
-    font-size: 1rem;
-}
-footer a {
-    color: var(--orange);
-    text-decoration: none;
-}
-footer a:hover {
-    text-decoration: underline;
+.footer-container {
+    max-width: var(--containerWidth);
+    margin: 0 auto;
 }
 
+footer p {
+    margin: 0 0 15px 0; /* Space below copyright */
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 20px; /* Row and column gap */
+}
+
+.footer-links a {
+    color: var(--lightblue); /* Lighter color for links */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--orange);
+    text-decoration: none; /* No underline needed */
+}
+
+/* 13- Animations & Transitions (Add more if needed) */
+/* Basic fade-in for sections (optional) */
+/*
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: sectionFadeIn 0.8s forwards;
+}
+
+@keyframes sectionFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+*/
+
+/* 14- Responsive Adjustments */
+@media (max-width: 992px) {
+    :root {
+        --containerWidth: 960px;
+        --sectionPaddingY: 70px;
+    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.5rem; }
+
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-image img { max-width: 350px; margin-bottom: 30px; }
+    .about-text { text-align: left; } /* Keep text left aligned */
+
+    .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --containerWidth: 720px;
+        --sectionPaddingY: 60px;
+        --sectionPaddingX: 15px; /* Reduce horizontal padding */
+    }
+    h1 { font-size: 2.2rem; }
+    .logo-title h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.4rem; }
+    h4 { font-size: 1rem; }
+
+    .header { min-height: 300px; padding: 60px var(--sectionPaddingX); }
+    .logo-title img { max-height: 60px; }
+    .logo-title h4 { font-size: 0.8rem; }
+    .cta-button { padding: 10px 22px; font-size: 0.9rem; }
+
+    /* Responsive Navbar */
+    .navbar {
+        /* Keep flex for sticky to work easily, maybe hide links */
+        padding: 8px 0;
+        justify-content: space-around; /* Or flex-end if adding a toggle */
+    }
+    /* Hide links for a potential mobile toggle menu later */
+    .navbar a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+        margin: 0 2px;
+        /* display: none; */ /* Uncomment if implementing toggle */
+    }
+    /* .navbar a:first-child { display: block; } */ /* Show home/logo? */
+
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 15px; }
+    .skill-card { max-width: 130px; padding: 20px 10px; }
+    .skill-icon { width: 40px; height: 40px; }
+    .stack-group { padding: 20px; }
+
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; } /* Ensure cards fit */
+    .project-card { height: 260px; }
+    .card-content h3 { font-size: 1.3rem;}
+    .card-content p { font-size: 0.9rem;}
+
+    .experience-grid { grid-template-columns: 1fr; gap: 20px; }
+    .experience-card { padding: 25px; }
+    .experience-role { font-size: 1.4rem; }
+
+    .contact-grid { gap: 25px; }
+    .contact-info, .contact-form { padding: 25px; }
+
+    .footer-links { justify-content: center; gap: 8px 15px; }
+    .footer-links a { font-size: 0.8rem; }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --sectionPaddingY: 50px;
+    }
+    h1 { font-size: 2rem; }
+    .logo-title h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+
+    .filter-btn { padding: 8px 18px; font-size: 0.85rem; }
+    .projects-grid { grid-template-columns: 1fr; } /* Single column projects */
+
+    .navbar a { padding: 6px 8px; font-size: 0.8rem; margin: 0 1px; } /* Further shrink navbar items */
+}
