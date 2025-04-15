@@ -15,12 +15,14 @@
 14-Responsive Adjustments
 */
 
-/* 1- Tipografia */
+/* 1- Tipografia ---------------------------------------------------*/
+/* -----------------------------------------------------------------*/
 @charset "utf-8";
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700,800"); /* Removed 600 if not used, added 400 */
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600"); /* Keep if used, e.g., in form inputs */
 
-/* 2- Paleta de colores */
+/* 2- Paleta de colores-------------------------------------------- */
+/* -----------------------------------------------------------------*/
 :root {
     --blue: #1b325f;
     --lightblue: #9cc4e4;
@@ -42,7 +44,8 @@
     --borderRadius: 8px;
 }
 
-/* 3- Boxmodel & Base Styles */
+/* 3- Boxmodel &  estilos base------------------------------------- */
+/* -----------------------------------------------------------------*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -66,7 +69,9 @@ body {
     transition: padding-top 0.4s ease;
 }
 
-/* Add this class to body via JS when navbar is sticky */
+/* 4- Header -------------------------------------------------------*/
+/* -----------------------------------------------------------------*/
+/* sticky navbar, menu fijo al scroll  */
 body.navbar-sticky {
     /* The actual padding value will be set by JS */
 }
@@ -104,16 +109,15 @@ p {
     color: var(--black);
 }
 
-/* 4- Header */
 #home {
     padding: 0; /* Ensure the container section itself has NO padding */
     margin: 0;  /* And no margin */
     /* It should already be display: block by default */
 }
 
-/* Make sure the .header rule still has its own padding if needed
-   for content spacing INSIDE the background image */
+
 .header {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +125,7 @@ p {
     min-height: 90vh;
     width: 100%;
     /* Padding here is okay, it's inside the header element */
-    padding: 40px var(--sectionPaddingX);
+    padding: 0;
     text-align: center;
     color: var(--white);
     background-image: url('./img/header-only-min.png');
@@ -129,60 +133,143 @@ p {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Optional */
+    overflow: hidden;
 }
 
-/* Keep logo-title styles as they are, they work with flex centering */
+/* Add overlay for better text readability */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+/* mantiene el logo-title , con with flex centrado */
+/* Make logo-title relative to header for proper stacking */
 .logo-title {
-    text-align: center; /* Already centers text content */
-    max-width: 90%; /* Prevent content from getting too wide on large screens */
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 90%;
+    padding: 2rem;
 }
 
 .logo-title img {
-    max-height: 75px;
-    margin-bottom: 20px; /* Increased space */
-    display: inline-block; /* Ensure it behaves well with text-align */
+    max-height: 90px;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
 .logo-title h1 {
-    font-size: 3.2rem; /* Slightly larger */
-    margin: 0 0 10px 0; /* Adjust margin */
+    font-size: 4rem;
+    margin: 0 0 0.5rem;
     font-weight: 800;
     color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* Slightly stronger shadow */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
 }
 
 .logo-title h4 {
-    font-size: 1rem; /* Increase size */
+    font-size: 1.1rem;
     font-weight: 400;
     color: var(--textColor);
-    margin: 0 0 25px 0; /* Adjust margin */
+    margin: 0 0 2rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Increase spacing */
+    letter-spacing: 3px;
+    opacity: 0.9;
 }
 
 /* Keep CTA button styles */
+/* Enhanced CTA button */
 .cta-button {
     display: inline-block;
-    padding: 12px 28px;
-    margin-top: 10px; /* Adjusted margin */
-    background-color: var(--ctaBackground);
+    padding: 14px 32px;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, var(--ctaBackground) 0%, var(--orange) 100%);
     color: var(--white);
     text-decoration: none;
     border-radius: var(--borderRadius);
     font-weight: 700;
-    font-size: 0.95rem;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    border: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .cta-button:hover {
-    background-color: var(--orange);
-    transform: translateY(-3px); /* Enhanced hover effect */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* No changes needed for the header's responsive rules  */
-/* 5- Navbar */
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Animation classes */
+.animate-element {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-title img.animate-element { animation-delay: 0.1s; }
+.logo-title h1.animate-element { animation-delay: 0.3s; }
+.logo-title h4.animate-element { animation-delay: 0.5s; }
+.logo-title .cta-button.animate-element { animation-delay: 0.7s; }
+
+/* Media Queries for better responsiveness */
+@media (max-width: 768px) {
+    .logo-title h1 {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        display: none; /* For mobile, consider adding a hamburger menu */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .logo-title h4 {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 5- Navbar -------------------------------------------------------*/
+/* -----------------------------------------------------------------*/
 .navbar {
     display: flex;
     flex-direction: row;

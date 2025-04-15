@@ -1,9 +1,9 @@
-// -------- Project Filtering -------- //
+// -------- Filtro para los botones de los proyectos-------- //
 function filterProjects(category) {
     const cards = document.querySelectorAll('.projects-grid .project-card');
     const buttons = document.querySelectorAll('.filter-buttons .filter-btn');
 
-    // Update button active state
+    // actualizar el boton de filtro activo
     buttons.forEach(btn => {
         btn.classList.remove('active');
         // Check dataset or onclick attribute for matching category
@@ -12,13 +12,13 @@ function filterProjects(category) {
         }
     });
 
-    // Filter cards
+    // Filtrar las tarjetas de proyectos
     cards.forEach(card => {
         const cardCategory = card.dataset.category || card.classList.contains(category); // Use data-category if available, fallback to class
         const cardMatches = category === 'all' || card.classList.contains(category); // Simpler check using class directly
 
 
-        // Use a class for hiding/showing for better CSS control (optional)
+        // Usa display: none en lugar de classList para ocultar tarjetas
         if (cardMatches) {
             // card.classList.remove('hidden');
             card.style.display = 'block'; // Keep using display for simplicity now
@@ -32,7 +32,7 @@ function filterProjects(category) {
 }
 
 
-// -------- Sticky Navbar -------- //
+// -------- Sticky Navbar, barra -------- //
 const navbar = document.querySelector('.navbar');
 const header = document.querySelector('.header'); // Or use a specific offset value
 
