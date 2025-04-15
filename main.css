@@ -337,41 +337,57 @@ section {
     justify-items: center;
 }
 
+/* Find the existing .skill-card rule */
 .skill-card {
     background-color: var(--cardBg);
     border-radius: var(--borderRadius);
     padding: 25px 15px;
-    text-align: center;
+    /* text-align: center; */ /* << REMOVE THIS or comment out */
+
+    /* --- ADD FLEXBOX --- */
+    display: flex;            /* <<< Use Flexbox */
+    flex-direction: column; /* <<< Stack icon and text vertically */
+    align-items: center;    /* <<< Center icon and text horizontally */
+    justify-content: center; /* Optional: Center vertically if height varies */
+    /* --- END FLEXBOX --- */
+
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     box-shadow: var(--cardShadow);
     width: 100%;
-    max-width: 160px; /* Limit width */
+    max-width: 160px; /* Keep max-width */
     border: 1px solid rgba(0,0,0,0.05);
+    min-height: 150px; /* Optional: Give cards a minimum height */
 }
 
+/* Keep the :hover styles for .skill-card as they are */
 .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--cardHoverShadow);
     background-color: var(--orange);
 }
 
+/* Keep .skill-icon styles, but ensure margin is appropriate */
 .skill-icon {
-    align-items: center;
-    width: 45px; /* Adjusted size */
+    width: 45px;
     height: 45px;
-    margin-bottom: 15px;
-    object-fit: contain; /* Ensure icon aspect ratio is maintained */
+    margin-bottom: 15px; /* Ensure space below icon */
+    object-fit: contain;
+    /* display: block; */ /* Not needed with flexbox */
+    /* margin-left: auto; margin-right: auto; */ /* Not needed with flexbox */
 }
 
+/* Keep .skill-card h3 styles */
 .skill-card h3 {
-    font-size: 1rem; /* Adjusted size */
+    font-size: 1rem;
     color: var(--blue);
-    margin: 0;
-    font-weight: 600; /* Signika font weight */
+    margin: 0; /* Text already centered by align-items */
+    font-weight: 600;
     transition: color 0.3s ease;
-    font-family: 'Signika', sans-serif; /* Use Signika for skill names */
+    font-family: 'Signika', sans-serif;
+    text-align: center; /* Explicitly center the text itself */
 }
 
+/* Keep .skill-card:hover h3 styles */
 .skill-card:hover h3 {
     color: var(--white);
 }
